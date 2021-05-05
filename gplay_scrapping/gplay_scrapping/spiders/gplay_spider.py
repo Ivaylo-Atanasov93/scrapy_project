@@ -33,4 +33,5 @@ class GplayProductsSpider(scrapy.Spider):
             yield response.follow(link.decode('utf8'), callback=self.parse_product)
 
     def parse_product(self, response):
-        print('Product_parse_function')
+        print(response.css('.float').css('::text').extract())
+        # print(response.css('div.int::text').extract_first())
